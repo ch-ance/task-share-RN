@@ -2,14 +2,11 @@ import React from "react";
 import { Button, Text, View } from "react-native";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
+import ViewTaskListScreen from "./views/ViewTaskListScreen";
 
-// import { AuthProvider } from 'react-use-auth'
 
 const HomeScreen = props => {
   const { navigation } = props;
-  const navigationOptions = {
-    title: "Home"
-  };
   return (
     <View
       style={{
@@ -20,33 +17,15 @@ const HomeScreen = props => {
       }}
     >
       <Text>Home Screen Component</Text>
-      <Button title="hey" onPress={() => navigation.navigate("Details")} />
+      <Button title="hey" onPress={() => navigation.navigate("TaskList")} />
     </View>
   );
 };
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     alignItems: "center",
-//     justifyContent: "center"
-//   }
-// });
-
-class DetailsScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text>Details Screen</Text>
-      </View>
-    );
-  }
-}
-
 const AppNavigator = createStackNavigator(
   {
-    Home: HomeScreen,
-    Details: DetailsScreen
+    // Home: HomeScreen,
+    Home: ViewTaskListScreen
   },
   {
     initialRouteName: "Home"
@@ -55,8 +34,6 @@ const AppNavigator = createStackNavigator(
 
 const AppContainer = createAppContainer(AppNavigator);
 
-export default class App extends React.Component {
-  render() {
-    return <AppContainer />;
-  }
-}
+export default props => {
+  return <AppContainer />;
+};
