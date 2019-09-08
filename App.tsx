@@ -3,7 +3,7 @@ import { Button, Text, View } from "react-native";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import ViewTaskListScreen from "./views/ViewTaskListScreen";
-
+import SocialFeed from "./views/SocialFeed";
 
 const HomeScreen = props => {
   const { navigation } = props;
@@ -24,8 +24,8 @@ const HomeScreen = props => {
 
 const AppNavigator = createStackNavigator(
   {
-    // Home: HomeScreen,
-    Home: ViewTaskListScreen
+    Home: SocialFeed,
+    MyLists: ViewTaskListScreen
   },
   {
     initialRouteName: "Home"
