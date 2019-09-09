@@ -4,7 +4,8 @@ import * as Font from "expo-font";
 import { Button, Text, View } from "react-native";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
-import ViewTaskListScreen from "./views/ViewTaskListScreen";
+import { StateProvider } from "./state";
+import MyListsScreen from "./views/MyListsScreen";
 import SocialFeed from "./views/SocialFeed";
 
 const HomeScreen = props => {
@@ -19,7 +20,7 @@ const HomeScreen = props => {
       }}
     >
       <Text>Home Screen Component</Text>
-      <Button title="hey" onPress={() => navigation.navigate("TaskList")} />
+      <Button title="hey" onPress={() => navigation.navigate("ScreenName ")} />
     </View>
   );
 };
@@ -27,7 +28,7 @@ const HomeScreen = props => {
 const AppNavigator = createStackNavigator(
   {
     Home: SocialFeed,
-    MyLists: ViewTaskListScreen
+    MyLists: MyListsScreen
   },
   {
     initialRouteName: "Home"
@@ -38,6 +39,25 @@ const AppContainer = createAppContainer(AppNavigator);
 
 export default props => {
   const [isReady, setIsReady] = useState(false);
+
+  // Global State configuration
+
+  const initialState = {
+    currentScreen: "Home"
+  };
+
+  const reducer = (state, { type, payload }) => {
+    switch (type) {
+      case "changeScreen":
+        return {
+          ...state,
+          currentScreen: payload
+        };
+
+      default:
+        return state;
+    }
+  };
 
   useEffect(() => {
     async function loadFonts() {
@@ -51,7 +71,7 @@ export default props => {
         MaterialCommunityIcons: require("native-base/Fonts/MaterialCommunityIcons.ttf"),
         Octicons: require("native-base/Fonts/Octicons.ttf"),
         SimpleLineIcons: require("native-base/Fonts/SimpleLineIcons.ttf"),
-        EvilIcons: require("native-base/Fonts/EvilIcons.ttf"),
+        EvilIcons: require("native-base/Fonts/EvilIcons.ttf")
         // ...Ionicons.font,
       });
       setIsReady(true);
@@ -60,6 +80,10 @@ export default props => {
   }, []);
 
   if (!isReady) {
-    return <AppLoading/>;
-  } else return <AppContainer />;
+    return <AppLoading />;
+  } else return (
+  <StateProvider initialState={initialState} reducer={reducer}>
+  <AppContainer {...props} />
+  </StateProvider>
+  );
 };

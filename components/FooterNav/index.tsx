@@ -1,19 +1,21 @@
 import React from "react";
 import { Footer, FooterTab, Button, Icon, Text } from "native-base";
-const FooterNav = () => {
+const FooterNav = ({ navigation }) => {
+  // const activeTab = navigation.
+
   return (
     <Footer>
       <FooterTab>
-        <Button vertical>
-          <Icon name="list" />
-          <Text>Settings</Text>
-        </Button>
-        <Button vertical>
+        <Button vertical onPress={() => navigation.navigate("MyLists")}>
           <Icon name="add" />
           <Text>Create</Text>
         </Button>
-        <Button vertical active>
-          <Icon active name="navigate" />
+        <Button vertical onPress={() => navigation.navigate("Home")}>
+          <Icon name="list" />
+          <Text>Feed</Text>
+        </Button>
+        <Button vertical>
+          <Icon name="navigate" />
           <Text>Explore</Text>
         </Button>
       </FooterTab>

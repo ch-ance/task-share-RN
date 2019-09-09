@@ -3,7 +3,8 @@ import { Container, Content, Text } from "native-base";
 import ListPost from "../components/SocialFeed/ListPost";
 import FooterNav from "../components/FooterNav";
 
-const SocialFeed = () => {
+const SocialFeed = props => {
+  const { navigation } = props;
 
   const [listPosts, setListPosts] = useState([
     {
@@ -33,7 +34,7 @@ const SocialFeed = () => {
           return <ListPost key={post.id} post={post} />;
         })}
       </Content>
-      <FooterNav />
+      <FooterNav navigation={navigation} />
     </Container>
   );
 };
