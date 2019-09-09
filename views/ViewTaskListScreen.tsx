@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Text, View } from "react-native";
-
+import FooterNav from "../components/FooterNav"
 const ViewTaskListScreen = () => {
   return (
     <View
@@ -12,6 +12,7 @@ const ViewTaskListScreen = () => {
       }}
     >
       <Text>Task List Screen Component</Text>
+      <FooterNav />
     </View>
   );
 };

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Text, View } from "react-native";
+import { Container, Content, Text } from "native-base";
 import ListPost from "../components/SocialFeed/ListPost";
+import FooterNav from "../components/FooterNav";
 
 const SocialFeed = () => {
+
   const [listPosts, setListPosts] = useState([
     {
       id: 1,
@@ -15,8 +17,9 @@ const SocialFeed = () => {
       categories: ["Web Development", "Software Engineering"]
     }
   ]);
+
   return (
-    <View
+    <Container
       style={{
         flex: 1,
         alignItems: "center",
@@ -24,11 +27,14 @@ const SocialFeed = () => {
         backgroundColor: "skyblue"
       }}
     >
-      <Text>Social Feed</Text>
-      {listPosts.map(post => {
-        return <ListPost key={post.id} post={post}/>
-      })}
-    </View>
+      <Content>
+        <Text>Social Feed</Text>
+        {listPosts.map(post => {
+          return <ListPost key={post.id} post={post} />;
+        })}
+      </Content>
+      <FooterNav />
+    </Container>
   );
 };
 
