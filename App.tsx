@@ -7,6 +7,8 @@ import { createStackNavigator } from "react-navigation-stack";
 import { StateProvider } from "./state";
 import MyListsScreen from "./views/MyListsScreen";
 import SocialFeed from "./views/SocialFeed";
+import SideDrawer from "./components/SideDrawer";
+import { createDrawerNavigator } from 'react-navigation-drawer';
 
 const HomeScreen = props => {
   const { navigation } = props;
@@ -25,13 +27,13 @@ const HomeScreen = props => {
   );
 };
 
-const AppNavigator = createStackNavigator(
+const AppNavigator = createDrawerNavigator(
   {
-    Home: SocialFeed,
-    MyLists: MyListsScreen
+    Home: { screen: SocialFeed },
+    MyLists: { screen: MyListsScreen }
   },
   {
-    initialRouteName: "Home"
+    contentComponent: props => <SideDrawer {...props} />
   }
 );
 
@@ -81,9 +83,10 @@ export default props => {
 
   if (!isReady) {
     return <AppLoading />;
-  } else return (
-  <StateProvider initialState={initialState} reducer={reducer}>
-  <AppContainer {...props} />
-  </StateProvider>
-  );
+  } else
+    return (
+      <StateProvider initialState={initialState} reducer={reducer}>
+        <AppContainer {...props} />
+      </StateProvider>
+    );
 };

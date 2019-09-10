@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Content, Text } from "native-base";
+import HeaderNav from "../components/HeaderNav";
 import FooterNav from "../components/FooterNav";
 const ViewTaskListScreen = props => {
   const { navigation } = props;
@@ -12,6 +13,7 @@ const ViewTaskListScreen = props => {
         backgroundColor: "red"
       }}
     >
+      <HeaderNav navigation={navigation}/>
       <Content>
         <Text>Task List Screen Component</Text>
       </Content>

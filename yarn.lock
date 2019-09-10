@@ -4594,6 +4594,11 @@ react-native-web@^0.11.4:
     xmldoc "^0.4.0"
     yargs "^9.0.0"
 
+react-navigation-drawer@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-navigation-drawer/-/react-navigation-drawer-2.1.1.tgz#455bad69e25e77b7d5a0564f49f89117355df445"
+  integrity sha512-mKJ0GAPPo5JtBuUtTIGDOzGtTU3eswFmDmdkYgLAZwLNiDI4v5gk0SpJSgBHeI75B2H2IKlQq7ahZAvhgZkrtw==
+
 react-navigation-stack@^1.5.3:
   version "1.5.3"
   resolved "https://registry.yarnpkg.com/react-navigation-stack/-/react-navigation-stack-1.5.3.tgz#cdc9f5a6dbdc55509a15f60d765722573dec1997"

@@ -7,18 +7,18 @@ import {
   Icon,
   Body,
   Title,
-  Container
 } from "native-base";
 
-const HeaderNav = () => {
+const HeaderNav = ({ navigation }) => {
+
   return (
     <Header
       noShadow
       style={{ backgroundColor: "blue", marginTop: 20, width: "100%" }}
     >
       <Left>
-        <Button transparent>
-          <Icon name="add" />
+        <Button transparent onPress={() => navigation.openDrawer()}>
+          <Icon name="menu" />
         </Button>
       </Left>
       <Body>

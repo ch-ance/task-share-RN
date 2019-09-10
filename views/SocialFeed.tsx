@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Content, Text } from "native-base";
 import ListPost from "../components/SocialFeed/ListPost";
+import HeaderNav from "../components/HeaderNav"
 import FooterNav from "../components/FooterNav";
 
 const SocialFeed = props => {
@@ -28,7 +29,9 @@ const SocialFeed = props => {
         backgroundColor: "skyblue"
       }}
     >
+      <HeaderNav navigation={navigation}/>
       <Content>
+
         <Text>Social Feed</Text>
         {listPosts.map(post => {
           return <ListPost key={post.id} post={post} />;

@@ -30,11 +30,11 @@ const FooterNav = ({ navigation }) => {
           onPress={() => changeScreens("Home")}
           active={isActive("Home")}
         >
-          <Icon name="list" />
-          <Text>Feed</Text>
+          <Icon name="home" />
+          <Text>Home</Text>
         </Button>
         <Button vertical>
-          <Icon name="navigate" />
+          <Icon name="search" />
           <Text>Explore</Text>
         </Button>
       </FooterTab>
