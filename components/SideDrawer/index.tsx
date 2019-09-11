@@ -1,7 +1,7 @@
 import React from "react";
 import { AppRegistry, Image, StatusBar } from "react-native";
 import { Container, Content, Text, List, ListItem } from "native-base";
-const routes = ["Home", "MyLists", "Profile"];
+const routes = ["Social", "MyLists", "Create"];
 const SideDrawer = (props) => {
     return (
       <Container>

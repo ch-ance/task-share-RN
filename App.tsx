@@ -1,35 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
-import { Button, Text, View } from "react-native";
 import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
 import { StateProvider } from "./state";
 import MyListsScreen from "./views/MyListsScreen";
 import SocialFeed from "./views/SocialFeed";
 import SideDrawer from "./components/SideDrawer";
 import { createDrawerNavigator } from 'react-navigation-drawer';
 
-const HomeScreen = props => {
-  const { navigation } = props;
-  return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "red"
-      }}
-    >
-      <Text>Home Screen Component</Text>
-      <Button title="hey" onPress={() => navigation.navigate("ScreenName ")} />
-    </View>
-  );
-};
-
 const AppNavigator = createDrawerNavigator(
   {
-    Home: { screen: SocialFeed },
+    Social: { screen: SocialFeed },
     MyLists: { screen: MyListsScreen }
   },
   {
@@ -42,8 +23,7 @@ const AppContainer = createAppContainer(AppNavigator);
 export default props => {
   const [isReady, setIsReady] = useState(false);
 
-  // Global State configuration
-
+  // Global State configuration 
   const initialState = {
     currentScreen: "Home"
   };
