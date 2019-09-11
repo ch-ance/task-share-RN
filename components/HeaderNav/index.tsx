@@ -22,7 +22,7 @@ const HeaderNav = ({ navigation }) => {
         </Button>
       </Left>
       <Body>
-        <Title>Task Share</Title>
+        <Title>Task Share!</Title>
       </Body>
       <Right>
         <Button transparent>

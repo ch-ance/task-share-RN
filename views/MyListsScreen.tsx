@@ -4,6 +4,22 @@ import HeaderNav from "../components/HeaderNav";
 import FooterNav from "../components/FooterNav";
 const ViewTaskListScreen = props => {
   const { navigation } = props;
+
+  const nestedRoutes = [
+    {
+      screenName: "Explore",
+      icon: "navigate"
+    },
+    {
+      screenName: "Feed",
+      icon: "list"
+    },
+    {
+      screenName: "Search",
+      icon: "search"
+    }
+  ];
+
   return (
     <Container
       style={{
@@ -17,7 +33,7 @@ const ViewTaskListScreen = props => {
       <Content>
         <Text>Task List Screen Component</Text>
       </Content>
-      <FooterNav navigation={navigation} />
+      <FooterNav navigation={navigation} nestedRoutes={nestedRoutes} />
 
     </Container>
   );

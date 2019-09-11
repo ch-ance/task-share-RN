@@ -1,7 +1,8 @@
 import React from "react";
 import { Footer, FooterTab, Button, Icon, Text } from "native-base";
 import { useStateValue } from "../../state";
-const FooterNav = ({ navigation }) => {
+const FooterNav = ({ navigation, nestedRoutes }) => {
+
   const [{ currentScreen }, dispatch] = useStateValue();
 
   function changeScreens(targetScreen) {
@@ -19,23 +20,26 @@ const FooterNav = ({ navigation }) => {
       <FooterTab>
         <Button
           vertical
-          onPress={() => changeScreens("MyLists")}
-          active={isActive("MyLists")}
+          onPress={() => changeScreens(nestedRoutes[0].screenName)}
+          active={isActive(nestedRoutes[0].screenName)}
         >
-          <Icon name="add" />
-          <Text>Create</Text>
+          <Icon name={nestedRoutes[0].icon} />
+          <Text>{nestedRoutes[0].screenName}</Text>
         </Button>
         <Button
           vertical
-          onPress={() => changeScreens("Home")}
-          active={isActive("Home")}
+          onPress={() => changeScreens(nestedRoutes[1].screenName)}
+          active={isActive(nestedRoutes[1].screenName)}
         >
-          <Icon name="home" />
-          <Text>Home</Text>
+          <Icon name={nestedRoutes[1].icon} />
+          <Text>{nestedRoutes[1].screenName}</Text>
         </Button>
-        <Button vertical>
-          <Icon name="search" />
-          <Text>Explore</Text>
+        <Button vertical
+          onPress={() => changeScreens(nestedRoutes[2].screenName)}
+          active={isActive(nestedRoutes[2].screenName)}
+        >
+          <Icon name={nestedRoutes[2].icon} />
+          <Text>{nestedRoutes[2].screenName}</Text>
         </Button>
       </FooterTab>
     </Footer>
