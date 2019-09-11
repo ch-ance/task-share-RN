@@ -7,16 +7,16 @@ const ViewTaskListScreen = props => {
 
   const nestedRoutes = [
     {
-      screenName: "Explore",
-      icon: "navigate"
+      screenName: "Create",
+      icon: "add"
     },
     {
-      screenName: "Feed",
+      screenName: "My Lists",
       icon: "list"
     },
     {
-      screenName: "Search",
-      icon: "search"
+      screenName: "My Tasks",
+      icon: "apps"
     }
   ];
 

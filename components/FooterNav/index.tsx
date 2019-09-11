@@ -1,8 +1,8 @@
 import React from "react";
 import { Footer, FooterTab, Button, Icon, Text } from "native-base";
+import NavigationTab from "./NavigationTab";
 import { useStateValue } from "../../state";
 const FooterNav = ({ navigation, nestedRoutes }) => {
-
   const [{ currentScreen }, dispatch] = useStateValue();
 
   function changeScreens(targetScreen) {
@@ -18,7 +18,17 @@ const FooterNav = ({ navigation, nestedRoutes }) => {
   return (
     <Footer>
       <FooterTab>
-        <Button
+        {nestedRoutes.map(route => {
+          return (
+            <NavigationTab
+              key={route.screenName}
+              isActive={isActive}
+              route={route}
+              changeScreens={changeScreens}
+            />
+          );
+        })}
+        {/* <Button
           vertical
           onPress={() => changeScreens(nestedRoutes[0].screenName)}
           active={isActive(nestedRoutes[0].screenName)}
@@ -40,7 +50,7 @@ const FooterNav = ({ navigation, nestedRoutes }) => {
         >
           <Icon name={nestedRoutes[2].icon} />
           <Text>{nestedRoutes[2].screenName}</Text>
-        </Button>
+        </Button> */}
       </FooterTab>
     </Footer>
   );
